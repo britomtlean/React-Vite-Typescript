@@ -1,0 +1,60 @@
+import type { ReactNode } from 'react';
+import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+import { Context } from '../context/ContextProvider';
+
+type Props = {
+    nome: string;
+    id: number;
+    children?: ReactNode;
+};
+
+const Home = ({ nome, id, children }: Props) => {
+
+    //const context = useContext(Context);
+    //if (!context) return null;
+
+    const { theme, setTheme, status, setStatus } = useContext(Context)!;
+
+    //setTheme('dark')
+
+    return (
+        <>
+            <header className="flex flex-row justify-between items-center px-40 py-5 bg-gray-600 absolute top-0 left-0 w-full">
+                <h1>LOGO</h1>
+                <nav className="flex justify-between gap-6">
+                    <Link className="bg-slate-300 p-2 rounded-2xl w-25 text-center" to={'/ref'}>
+                        Ref
+                    </Link>
+                    <Link className="bg-slate-300 p-2 rounded-2xl w-25 text-center" to={'/state'}>
+                        State
+                    </Link>
+                    <Link className="bg-slate-300 p-2 rounded-2xl w-25 text-center" to={'/effect'}>
+                        Effect
+                    </Link>
+                    <Link className="bg-slate-300 p-2 rounded-2xl w-25 text-center" to={'/search'}>
+                        Search
+                    </Link>
+                </nav>
+                <ul className="flex flex-row gap-4 items-center justify-center text-white font-black">
+                    <li>{nome}</li>
+                    <li>ID: {id}</li>
+                </ul>
+            </header>
+
+            <div
+                className={`flex flex-col justify-center items-center w-full min-h-screen ${
+                    theme === 'default' ? 'bg-gray-500' : 'bg-gray-900'
+                }`}
+            >
+                {children}
+            </div>
+
+            <footer className="flex flex-row justify-center items-center px-40 py-8 bg-gray-600 absolute bottom-0 left-0 w-full text-[0.3rem]">
+                <h1>Todos os direitos reservados.</h1>
+            </footer>
+        </>
+    );
+};
+
+export default Home;
