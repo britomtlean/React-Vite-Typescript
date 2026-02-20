@@ -1,7 +1,11 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { Context } from '../context/ContextProvider';
 
 const State = () => {
     const [count, setCount] = useState<number>(0);
+    const { setMessage } = useContext(Context)!;
+
+    setMessage('useState')
 
     return (
         <>

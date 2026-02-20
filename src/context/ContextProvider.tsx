@@ -1,5 +1,5 @@
 import { useState, createContext } from 'react';
-import type { PropsWithChildren } from 'react';
+import type { PropsWithChildren } from 'react'; //TIPAGEM DE PROP
 
 export type ContextType = {
     theme: string;
@@ -18,7 +18,7 @@ export const Context: React.Context<ContextType | null> = createContext<ContextT
 /************************************************************************************** */
 
 export const ContextProvider = ({ children }: PropsWithChildren) => {
-    
+
     const [theme, setTheme] = useState<string>('default');
     const [status, setStatus] = useState<boolean>(true);
     const [message, setMessage] = useState<string>('Hello Context');

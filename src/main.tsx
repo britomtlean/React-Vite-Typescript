@@ -11,6 +11,7 @@ import State from './components/State.tsx';
 //CONTEXT
 import { ContextProvider } from './context/ContextProvider.tsx';
 import Effect from './components/Effect.tsx';
+import DadosAPI from './components/DadosAPI.tsx';
 
 let router = createBrowserRouter([
     {
@@ -32,6 +33,10 @@ let router = createBrowserRouter([
             {
                 path: '/effect',
                 element: <Effect />,
+            },
+            {
+                path: '/api/dadosapi',
+                element: <DadosAPI />,
             },
         ],
     },

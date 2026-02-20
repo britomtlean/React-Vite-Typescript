@@ -1,12 +1,17 @@
 //Pegando dados da url usando useSearchParams
 
 import { useSearchParams } from 'react-router-dom';
+import { useContext } from 'react';
+import { Context } from '../context/ContextProvider';
 
 const Search = () => {
 
     const [searchParams] = useSearchParams();
     const title = searchParams.get('title');
     const description = searchParams.get('description');
+    const { setMessage } = useContext(Context)!;
+
+    setMessage('searchParams');
 
     return (
         <>

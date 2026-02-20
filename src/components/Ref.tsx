@@ -1,12 +1,14 @@
 //Tipagem usando useRef com elementos HTML
 
-import { useRef, useContext } from 'react';
+import { useRef, useContext, useEffect } from 'react';
 import { Context } from '../context/ContextProvider';
 
 const Ref = () => {
 
     const { setMessage } = useContext(Context)!;
     const inputRef = useRef<HTMLInputElement>(null);
+
+    useEffect(() => {setMessage('Seu Mensagem aqui');},[])
 
     const focarInput = () => {
         if (inputRef.current) setMessage(inputRef.current.value);

@@ -2,6 +2,7 @@ import type { ReactNode } from 'react';
 import { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { Context } from '../context/ContextProvider';
+import { FaBeer } from 'react-icons/fa';
 
 type Props = {
     nome: string;
@@ -21,7 +22,10 @@ const Home = ({ nome, id, children }: Props) => {
     return (
         <>
             <header className="flex flex-row justify-between items-center px-40 py-5 bg-gray-600 absolute top-0 left-0 w-full">
-                <h1>LOGO</h1>
+                <h1>
+                    {' '}
+                    <FaBeer className="text-5xl text-white" />
+                </h1>
                 <nav className="flex justify-between gap-6">
                     <Link className="bg-slate-300 p-2 rounded-2xl w-25 text-center" to={'/ref'}>
                         Ref
@@ -34,6 +38,9 @@ const Home = ({ nome, id, children }: Props) => {
                     </Link>
                     <Link className="bg-slate-300 p-2 rounded-2xl w-25 text-center" to={'/search'}>
                         Search
+                    </Link>
+                    <Link className="bg-slate-300 p-2 rounded-2xl w-25 text-center" to={'/api/dadosapi'}>
+                        Dados API
                     </Link>
                 </nav>
                 <ul className="flex flex-row gap-4 items-center justify-center text-white font-black">
